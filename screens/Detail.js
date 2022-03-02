@@ -54,14 +54,14 @@ const Detail = ({ route, navigation }) => {
           <Text style={{fontFamily:'Roboto_400Regular', fontSize:15}}>{item.materials}</Text>
         </View>
         {/* Step */}
-        <FlatList data = {item.step} renderItem = {renderItem} horizontal showsHorizontalScrollIndicator = {false}/>
+        <FlatList data = {item.step} renderItem = {renderItem} horizontal showsHorizontalScrollIndicator = {false} keyExtractor={(item) => item.index}/>
         <View style={{marginVertical:10, marginHorizontal:5,backgroundColor:'white', borderRadius:15, padding:7}}>
         <Text style={{fontFamily:'Roboto_700Bold', fontSize:25,marginVertical:10}}>Video Instruction </Text>
           <YoutubePlayer
             style={{alignItems:'center'}}
             height={500}
             width={400}
-            videoId={"Hi_FliarjTk"}
+            videoId={item.videoId}
           />
         </View>
       </View>

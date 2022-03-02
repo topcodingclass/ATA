@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, FlatList, Image, TouchableOpacity, ScrollView } from "react-native";
+import { Text, View, FlatList, Image, TouchableOpacity, ScrollView, SafeAreaView} from "react-native";
 import AppLoading from "expo-app-loading";
 import {
   useFonts,
@@ -26,21 +26,23 @@ const DATA = [
     materials: "Plastic Plate, Yellow Lanyard, Beige Paint, White Pipe Cleaner",
     step: steps.first,
     src: require("../assets/1.png"),
+    videoId: "Hi_FliarjTk"
   },
   {
     id: 2,
     title: "Sing Sing Microphone",
     materials:
       "Aluminum Foil, Origami, Tennis Ball, Used Toilet Paper Roll, Pipe Cleaner",
-    step: ["2-1.jpg", "2-2.jpg", "2-3.jpg"],
+    step: steps.second,
     src: require("../assets/2.png"),
+    videoId:"xSH7Rncaj2w"
   },
   {
     id: 3,
     title: "Colorful Clouds",
     materials:
       "Brown Red Purple Blue Green Construction Paper, Cotton Balls, Yellow Lanyard",
-    step: ["3-1.jpg", "3-2.jpg", "3-3.jpg"],
+      step: steps.third,
     src: require("../assets/3.png"),
   },
   {
@@ -48,7 +50,7 @@ const DATA = [
     title: "Super Steamers",
     materials:
       "Used Tissue Roll, Two Gobbly Eyes, Red Steamer Paper, Green Steamer Paper, Two Green Cotton Balls, Red Orgami",
-    step: ["4-1.jpg", "4-2.jpg", "4-3.jpg"],
+      step: steps.fourth,
     src: require("../assets/3.png"),
   },
   {
@@ -56,42 +58,44 @@ const DATA = [
     title: "Happy flower",
     materials:
       "One Popsicle Stick, Yellow and Pink Lanyard, One Plastic Plate, Green Duck Tape",
-    step: ["5-1.jpg", "5-2.jpg", "5-3.jpg"],
+      step: steps.fifth,
     src: require("../assets/3.png"),
   },
   {
     id: 6,
     title: "Swim Swim Fishy",
     materials: "Aluminum Foil, Origami, Tennis Ball",
-    step: ["6-1.jpg", "6-2.jpg", "6-3.jpg"],
+    step: steps.sixth,
     src: require("../assets/3.png"),
+    videoId:"980S89A1gMw"
   },
   {
     id: 7,
     title: "Turkey Hanger",
     materials: "Aluminum Foil, Origami, Tennis Ball",
-    step: ["7-1.jpg", "7-2.jpg", "7-3.jpg"],
+    step: steps.seventh,
     src: require("../assets/3.png"),
+    videoId:"MA_wTUZYaHc"
   },
   {
     id: 8,
     title: "In the Desert",
     materials: "Aluminum Foil, Origami, Tennis Ball",
-    step: ["8-1.jpg", "8-2.jpg", "8-3.jpg"],
+    step: steps.eighth,
     src: require("../assets/3.png"),
   },
   {
     id: 9,
     title: "Happy Snowman",
     materials: "Aluminum Foil, Origami, Tennis Ball",
-    step: ["9-1.jpg", "9-2.jpg", "9-3.jpg"],
+    step: steps.nineth,
     src: require("../assets/3.png"),
   },
   {
     id: 10,
     title: "My Little Christman Tree",
     materials: "Aluminum Foil, Origami, Tennis Ball",
-    step: ["10-1.jpg", "10-2.jpg", "10-3.jpg"],
+    step: steps.tenth,
     src: require("../assets/3.png"),
   },
 ];
@@ -113,7 +117,7 @@ const Main = ({ navigation }) => {
   });
 
   const renderItem = ({ item, index }) => (
-    <TouchableOpacity style={{borderWidth:1.4, borderColor:'#AED6F1', borderRadius:10, width:170, height:200, margin:10, justifyContent:'center', alignItems:'center'}}
+    <TouchableOpacity style={{borderWidth:1.4, borderColor:'#AED6F1', borderRadius:10, width:190, height:220, margin:7, justifyContent:'center', alignItems:'center'}}
     onPress={() => navigation.navigate("Detail", { item: item })}
     >
       <Image style={{width:140, height:160, borderRadius:10, marginTop:10}} source= {item.src} />
@@ -135,9 +139,9 @@ const Main = ({ navigation }) => {
         </View>
         {/* Theraphy list */}
         <ScrollView>
-          <View style={{ justifyContent: "center", alignItems: "center" }}>
-            <FlatList data={DATA} renderItem={renderItem} numColumns={2} />
-          </View>
+          <SafeAreaView  style={{ justifyContent: "center", alignItems: "center" }}>
+            <FlatList data={DATA} renderItem={renderItem} numColumns={2} keyExtractor={(item) => item.id}/>
+          </SafeAreaView >
         </ScrollView>
       </View>
     );
