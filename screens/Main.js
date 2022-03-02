@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, FlatList, Image, TouchableOpacity } from "react-native";
+import { Text, View, FlatList, Image, TouchableOpacity, ScrollView } from "react-native";
 import AppLoading from "expo-app-loading";
 import {
   useFonts,
@@ -134,9 +134,11 @@ const Main = ({ navigation }) => {
           />
         </View>
         {/* Theraphy list */}
-        <View style={{ justifyContent: "center", alignItems: "center" }}>
-          <FlatList data={DATA} renderItem={renderItem} numColumns={2} />
-        </View>
+        <ScrollView>
+          <View style={{ justifyContent: "center", alignItems: "center" }}>
+            <FlatList data={DATA} renderItem={renderItem} numColumns={2} />
+          </View>
+        </ScrollView>
       </View>
     );
   }

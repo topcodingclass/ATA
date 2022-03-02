@@ -37,9 +37,10 @@ const Detail = ({ route, navigation }) => {
   console.log(item)
   navigation.setOptions({ headerTitle: item.title })
 
-  const renderItem = ({item}) =>(
-    <View>
-      <Image source={item.img} style={{ marginVertical:10, marginHorizontal:5, width: 300, height: 250, borderRadius:15 }} />
+  const renderItem = ({item, index}) =>(
+    <View style={{ marginVertical:10, marginHorizontal:5, width: 300, height: 250, borderRadius:15, backgroundColor:'white' , alignItems:'center'}}>
+      <Text style={{fontFamily:'Roboto_700Bold', fontSize:21}}>Step {index+1}</Text>
+      <Image source={item.img} style={{ marginVertical:10, width: 270, height: 200, borderRadius:15 }} />
     </View>
   )
   if (!fontsLoaded) {
