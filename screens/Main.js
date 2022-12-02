@@ -51,7 +51,7 @@ const DATA = [
     materials:
       "Used Tissue Roll, Two Gobbly Eyes, Red Steamer Paper, Green Steamer Paper, Two Green Cotton Balls, Red Orgami",
       step: steps.fourth,
-    src: require("../assets/3.png"),
+    src: require("../assets/4-4.png"),
   },
   {
     id: 5,
@@ -59,14 +59,14 @@ const DATA = [
     materials:
       "One Popsicle Stick, Yellow and Pink Lanyard, One Plastic Plate, Green Duck Tape",
       step: steps.fifth,
-    src: require("../assets/3.png"),
+    src: require("../assets/5-4.png"),
   },
   {
     id: 6,
     title: "Swim Swim Fishy",
     materials: "Aluminum Foil, Origami, Tennis Ball",
     step: steps.sixth,
-    src: require("../assets/3.png"),
+    src: require("../assets/6-4.png"),
     videoId:"980S89A1gMw"
   },
   {
@@ -74,7 +74,7 @@ const DATA = [
     title: "Turkey Hanger",
     materials: "Aluminum Foil, Origami, Tennis Ball",
     step: steps.seventh,
-    src: require("../assets/3.png"),
+    src: require("../assets/7-4.png"),
     videoId:"MA_wTUZYaHc"
   },
   {
@@ -82,21 +82,21 @@ const DATA = [
     title: "In the Desert",
     materials: "Aluminum Foil, Origami, Tennis Ball",
     step: steps.eighth,
-    src: require("../assets/3.png"),
+    src: require("../assets/8-3.png"),
   },
   {
     id: 9,
     title: "Happy Snowman",
     materials: "Aluminum Foil, Origami, Tennis Ball",
     step: steps.nineth,
-    src: require("../assets/3.png"),
+    src: require("../assets/9-4.png"),
   },
   {
     id: 10,
     title: "My Little Christman Tree",
     materials: "Aluminum Foil, Origami, Tennis Ball",
     step: steps.tenth,
-    src: require("../assets/3.png"),
+    src: require("../assets/10-4.png"),
   },
 ];
 
@@ -117,7 +117,7 @@ const Main = ({ navigation }) => {
   });
 
   const renderItem = ({ item, index }) => (
-    <TouchableOpacity style={{borderWidth:1.4, borderColor:'#AED6F1', borderRadius:10, width:190, height:220, margin:7, justifyContent:'center', alignItems:'center'}}
+    <TouchableOpacity style={{borderWidth:1.4, borderColor:'#AED6F1', borderRadius:10, width:170, height:220, margin:7, justifyContent:'center', alignItems:'center'}}
     onPress={() => navigation.navigate("Detail", { item: item })}
     >
       <Image style={{width:140, height:160, borderRadius:10, marginTop:10}} source= {item.src} />
@@ -129,7 +129,7 @@ const Main = ({ navigation }) => {
     return <AppLoading />;
   } else {
     return (
-      <View style={{backgroundColor:'white'}}>
+      <View style={{flex:1, backgroundColor:'white'}}>
         {/* Logo */}
         <View style={{ marginTop: 20, paddingTop: 30, paddingHorizontal: 5 }}>
           <Image
@@ -138,11 +138,11 @@ const Main = ({ navigation }) => {
           />
         </View>
         {/* Theraphy list */}
-        <ScrollView>
-          <SafeAreaView  style={{ justifyContent: "center", alignItems: "center" }}>
+        
+          <SafeAreaView  style={{flex:1, justifyContent: "center", alignItems: "center" }}>
             <FlatList data={DATA} renderItem={renderItem} numColumns={2} keyExtractor={(item) => item.id}/>
           </SafeAreaView >
-        </ScrollView>
+        
       </View>
     );
   }
